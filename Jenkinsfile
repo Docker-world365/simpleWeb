@@ -16,19 +16,25 @@ pipeline {
             steps {
                 script {
                     if(platform.substring(0,3) == "win"){
-                        make = "echo done"
+                        make = "mkdir test"
                     }
                 }
                 echo 'Testing..'
                 sh 'docker run -d imvipul26/simple-node'
                 sh """
+                    pwd
                     ${make}
+                    cd test
+                    ls
                 """
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh """
+                    ls 
+                """
             }
         }
     }
