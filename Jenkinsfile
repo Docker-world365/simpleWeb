@@ -14,8 +14,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                if(platform.substring(0,3) == "win"){
-                    make = "echo done"
+                script {
+                    if(platform.substring(0,3) == "win"){
+                        make = "echo done"
+                    }
                 }
                 echo 'Testing..'
                 sh 'docker run -d imvipul26/simple-node'
