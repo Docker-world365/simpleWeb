@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     if(platform.substring(0,3) == "win"){
-                        make = "echo "Hello \"Linuxize\"""
+                        make = 'cmake -G \\"NMake Makefiles\\"..'
                     }
                 }
                 echo 'Testing..'
