@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     if(platform.substring(0,3) == "win"){
-                        make = "mkdir test"
+                        make = 'echo "testing" '
                     }
                 }
                 echo 'Testing..'
@@ -24,7 +24,8 @@ pipeline {
                 sh """
                     pwd
                     ${make}
-                    cd test
+                    
+                    
                     ls
                 """
             }
