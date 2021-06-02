@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+    def make = "ls -lrta"
+    }
 
     stages {
         stage('Build') {
@@ -12,6 +15,9 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh 'docker run -d imvipul26/simple-node'
+                sh """
+                    ${make}
+                """
             }
         }
         stage('Deploy') {
